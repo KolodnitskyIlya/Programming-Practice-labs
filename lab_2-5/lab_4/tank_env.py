@@ -56,7 +56,6 @@ class TankEnv:
             self.goal_pos[0] - self.tank_pos[0]
         ) - math.radians(self.tank_angle)
 
-        # Направления: вперед, назад, влево, вправо
         angle_rad = math.radians(self.tank_angle)
         forward = np.array([math.cos(angle_rad), math.sin(angle_rad)])
         backward = -forward
@@ -158,15 +157,15 @@ if __name__ == "__main__":
         keys = pygame.key.get_pressed()
         action = None
         if keys[pygame.K_w]:
-            action = 0  # Вперёд
+            action = 0
         elif keys[pygame.K_s]:
-            action = 1  # Назад
+            action = 1
         elif keys[pygame.K_a]:
-            action = 2  # Поворот влево
+            action = 2  
         elif keys[pygame.K_d]:
-            action = 3  # Поворот вправо
+            action = 3  
         elif keys[pygame.K_SPACE]:
-            action = 4  # Попытка взять цель
+            action = 4 
 
         if action is not None:
             state, reward, done, _ = env.step(action)

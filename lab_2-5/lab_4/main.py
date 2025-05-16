@@ -16,7 +16,7 @@ if __name__ == "__main__":
         state = env.reset()
         total_reward = 0
         for time in range(200):
-            env.render()  # Раскомментируйте для визуализации во время обучения
+            env.render()  
             action = agent.act(state)
             next_state, reward, done, _ = env.step(action)
             agent.remember(state, action, reward, next_state, done)
@@ -28,7 +28,6 @@ if __name__ == "__main__":
         rewards_per_episode.append(total_reward)
         print(f"Episode {e+1}/{episodes} — Reward: {total_reward} — Epsilon: {agent.epsilon:.2f}")
 
-    # Сохраняем историю наград и модель
     np.save("rewards.npy", rewards_per_episode)
     torch.save(agent.model.state_dict(), "dqn_model.pth")
     env.close()

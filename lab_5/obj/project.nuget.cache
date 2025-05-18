@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QOrgf0MzvrYVmfBsES+CQsBg6dS5nI3zjpZZMVgucK42pd/OysEIwURYZUH9ULn02FaYBn3mL92XCyzh4C4TDQ==",
+  "success": true,
+  "projectFilePath": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_5/lab_5.csproj",
+  "expectedPackageFiles": [
+    "/Users/macbook/.nuget/packages/python.runtime/2.7.9/python.runtime.2.7.9.nupkg.sha512"
+  ],
+  "logs": []
+}

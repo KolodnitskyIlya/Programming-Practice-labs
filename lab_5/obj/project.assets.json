@@ -1,0 +1,97 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "Python.Runtime/2.7.9": {
+        "type": "package"
+      }
+    }
+  },
+  "libraries": {
+    "Python.Runtime/2.7.9": {
+      "sha512": "NBS5t9KJvBVDoAFsVOQ79Ri133Hir8O6sqcEZJufXLVvlReXvzyZKhkcO5fpWcqjj6798qrWd/tO/TXCx2Ga7g==",
+      "type": "package",
+      "path": "python.runtime/2.7.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "python.exe",
+        "python.runtime.2.7.9.nupkg.sha512",
+        "python.runtime.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "Python.Runtime >= 2.7.9"
+    ]
+  },
+  "packageFolders": {
+    "/Users/macbook/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_5/lab_5.csproj",
+      "projectName": "lab_5",
+      "projectPath": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_5/lab_5.csproj",
+      "packagesPath": "/Users/macbook/.nuget/packages/",
+      "outputPath": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_5/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/macbook/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "/usr/local/share/dotnet/library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "dependencies": {
+          "Python.Runtime": {
+            "target": "Package",
+            "version": "[2.7.9, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

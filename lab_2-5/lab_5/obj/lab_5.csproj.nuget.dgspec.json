@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_5/lab_5.csproj": {}
+    "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_2-5/lab_5/lab_5.csproj": {}
   },
   "projects": {
-    "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_5/lab_5.csproj": {
+    "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_2-5/lab_5/lab_5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_5/lab_5.csproj",
+        "projectUniqueName": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_2-5/lab_5/lab_5.csproj",
         "projectName": "lab_5",
-        "projectPath": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_5/lab_5.csproj",
+        "projectPath": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_2-5/lab_5/lab_5.csproj",
         "packagesPath": "/Users/macbook/.nuget/packages/",
-        "outputPath": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_5/obj/",
+        "outputPath": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_2-5/lab_5/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/macbook/.nuget/NuGet/NuGet.Config"
@@ -43,12 +43,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Python.Runtime": {
-              "target": "Package",
-              "version": "[2.7.9, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

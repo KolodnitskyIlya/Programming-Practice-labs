@@ -1,56 +1,44 @@
-using Python.Runtime;
+﻿using System;
+using System.Diagnostics;
+using System.IO;
 
 class Program
 {
-    static void Main()
+    static void RunScript(string scriptPath)
     {
-        PythonEngine.Initialize();
-
-        string[] scripts = {
-            "scripts/script1.py",
-            "scripts/script2.py",
-            "scripts/script3.py",
-            "scripts/script4.py",
-            "scripts/script5.py",
-            "scripts/script6.py"
+        var psi = new ProcessStartInfo
+        {
+            FileName = "python3",
+            Arguments = scriptPath,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false
         };
 
-        foreach (string script in scripts)
+        using (var process = Process.Start(psi))
         {
-            using (Py.GIL())
-            {
-                dynamic builtins = Py.Import("builtins");
-                dynamic runpy = Py.Import("runpy");
+            string output = process.StandardOutput.ReadToEnd();
+            string error = process.StandardError.ReadToEnd();
+            process.WaitForExit();
 
-                Console.WriteLine($"Running {script}...");
-                runpy.run_path(script);
-            }
+            Console.WriteLine($"▶ {Path.GetFileName(scriptPath)} завершён.");
+            if (!string.IsNullOrEmpty(output)) Console.WriteLine("Вывод:\n" + output);
+            if (!string.IsNullOrEmpty(error)) Console.WriteLine("Ошибки:\n" + error);
+        }
+    }
+
+    static void Main()
+    {
+        string[] scripts = {
+            "scripts/script1.py", "scripts/script2.py", "scripts/script3.py",
+            "scripts/script4.py", "scripts/script5.py", "scripts/script6.py"
+        };
+
+        foreach (var script in scripts)
+        {
+            RunScript(script);
         }
 
-        PythonEngine.Shutdown();
-        Console.WriteLine("✅ Все скрипты выполнены.");
-
-        // ---------- Стратегия коллизий (голосование) ----------
-        var allPreds = new List<int[]>();
-        for (int i = 1; i <= 6; i++)
-        {
-            var path = $"output/predictions_script{i}.csv";
-            Console.WriteLine($"📄 Загрузка предсказаний: {path}");
-            var lines = File.ReadAllLines(path).Skip(1).ToArray();
-            allPreds.Add(lines.Select(int.Parse).ToArray());
-        }
-
-        int rowCount = allPreds[0].Length;
-        var final = new List<int>();
-
-        for (int i = 0; i < rowCount; i++)
-        {
-            var votes = allPreds.Select(p => p[i]);
-            int majority = votes.GroupBy(x => x).OrderByDescending(g => g.Count()).First().Key;
-            final.Add(majority);
-        }
-
-        File.WriteAllLines("output/final_predictions.csv", new[] { "prediction" }.Concat(final.Select(x => x.ToString())));
-        Console.WriteLine("✅ Голосование завершено. Результаты сохранены в output/final_predictions.csv");
+        Console.WriteLine("✅ Все скрипты Python выполнены.");
     }
 }

@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {
-      "Python.Runtime/2.7.9": {
-        "type": "package"
-      }
-    }
+    "net8.0": {}
   },
-  "libraries": {
-    "Python.Runtime/2.7.9": {
-      "sha512": "NBS5t9KJvBVDoAFsVOQ79Ri133Hir8O6sqcEZJufXLVvlReXvzyZKhkcO5fpWcqjj6798qrWd/tO/TXCx2Ga7g==",
-      "type": "package",
-      "path": "python.runtime/2.7.9",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "python.exe",
-        "python.runtime.2.7.9.nupkg.sha512",
-        "python.runtime.nuspec"
-      ]
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net8.0": [
-      "Python.Runtime >= 2.7.9"
-    ]
+    "net8.0": []
   },
   "packageFolders": {
     "/Users/macbook/.nuget/packages/": {}
@@ -32,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_5/lab_5.csproj",
+      "projectUniqueName": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_2-5/lab_5/lab_5.csproj",
       "projectName": "lab_5",
-      "projectPath": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_5/lab_5.csproj",
+      "projectPath": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_2-5/lab_5/lab_5.csproj",
       "packagesPath": "/Users/macbook/.nuget/packages/",
-      "outputPath": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_5/obj/",
+      "outputPath": "/Users/macbook/Desktop/ВУЗ/Практикум по программированию/lab_2-5/lab_5/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/macbook/.nuget/NuGet/NuGet.Config"
@@ -68,12 +49,6 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
-        "dependencies": {
-          "Python.Runtime": {
-            "target": "Package",
-            "version": "[2.7.9, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",

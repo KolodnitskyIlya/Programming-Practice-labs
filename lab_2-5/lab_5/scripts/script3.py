@@ -1,29 +1,35 @@
-import time, os
+import sys
+import time
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
-from category_encoders.target_encoder import TargetEncoder
+from category_encoders import TargetEncoder
+import json
 
-os.makedirs("output", exist_ok=True)
-start = time.time()
+def run_model_from_csv(csv_text):
+    start = time.time()
+    from io import StringIO
+    data = pd.read_csv(StringIO(csv_text))
 
-data = pd.read_csv("input/data.csv")
-X = data.iloc[:, :-1]
-y = data.iloc[:, -1]
+    X = data.iloc[:, :-1]
+    y = data.iloc[:, -1]
 
-categorical_cols = X.select_dtypes(include=["object", "category"]).columns.tolist()
-if categorical_cols:
-    encoder = TargetEncoder(cols=categorical_cols)
-    X = encoder.fit_transform(X, y)
+    categorical_cols = X.select_dtypes(include=["object", "category"]).columns.tolist()
+    if categorical_cols:
+        encoder = TargetEncoder(cols=categorical_cols)
+        X = encoder.fit_transform(X, y)
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-model = DecisionTreeClassifier()
-model.fit(X_train, y_train)
-y_pred = model.predict(X_test)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    model = DecisionTreeClassifier()
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
 
-pd.DataFrame({"prediction": y_pred}).to_csv("output/predictions_script3.csv", index=False)
-with open("output/metrics_script3.txt", "w") as f:
-    f.write(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}\n")
-with open("output/timing_script3.txt", "w") as f:
-    f.write(f"{time.time() - start:.2f} seconds\n")
+    print(json.dumps({
+        "model": "DecisionTree",
+        "accuracy": accuracy_score(y_test, y_pred),
+        "time": round(time.time() - start, 2)
+    }))
+
+if __name__ == "__main__":
+    run_model_from_csv(sys.stdin.read())

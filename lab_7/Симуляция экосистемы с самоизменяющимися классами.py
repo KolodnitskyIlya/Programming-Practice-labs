@@ -92,17 +92,13 @@ class World:
     def step(self):
         self.update_time()
         
-        # Update all entities
         for entity in self.entities[:]:
             entity.update()
 
-        # Plant competition
         self.handle_plant_competition()
 
-        # Animal interactions
         self.handle_animal_interactions()
 
-        # Clean up dead entities
         self.cleanup_entities()
 
         self.print_state()
@@ -135,7 +131,6 @@ class World:
         print(f"\nDay {self.day_counter}, Time: {self.time_of_day.name}")
         stats = self.collect_statistics()
         
-        # Grid visualization
         for y in range(self.height):
             row = []
             for x in range(self.width):
@@ -143,7 +138,6 @@ class World:
                 row.append(self.get_entity_symbol(entity))
             print(' '.join(row))
         
-        # Statistics
         print("\nStatistics:")
         for name, data in stats.items():
             if data['count'] > 0:
@@ -206,8 +200,8 @@ class Plant:
     def __init__(self):
         self.position = Position(0, 0)
         self.world = None
-        self.growth_rate = 0.1
-        self.spread_rate = 0.05
+        self.growth_rate = 0.8
+        self.spread_rate = 0.7
         self.active = False
         self.health = 100
         self.max_health = 100
@@ -375,7 +369,7 @@ class Pauvre(Animal):
         self.group = []
         self.group_radius = 2
         self.min_group_size = 1
-        self.max_group_size = 3
+        self.max_group_size = 20
         self.eat_strategy = self.eat_normal
         self.sleep_time = TimeOfDay.NIGHT
         self.favorite_food = Lumiere
